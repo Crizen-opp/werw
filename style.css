@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #87ceeb; /* Sky background */
+}
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.rooftop {
+    position: absolute;
+    bottom: 10%;
+    width: 80%;
+    height: 20%;
+    background: #333;
+    border-top: 10px solid #222;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+.boy, .girl {
+    width: 100px;
+    height: 200px;
+    position: absolute;
+    bottom: 10px;
+}
+.boy {
+    left: 10%;
+    animation: boyMove 5s forwards;
+}
+.girl {
+    right: 10%;
+}
+@keyframes boyMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(300px); } /* Adjust based on distance to girl */
+}
+.flowers {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: no-repeat center/contain;
+    opacity: 0;
+    animation: giveFlowers 5s forwards;
+}
+.daffodils {
+    background-image: url('daffodils.png'); /* Replace with daffodils image */
+    left: calc(10% + 300px); /* Adjust to final position of boy */
+    top: -50px;
+    animation-delay: 4s;
+}
+.tulips {
+    background-image: url('tulips.png'); /* Replace with tulips image */
+    left: calc(10% + 300px + 50px); /* Adjust to final position of boy */
+    top: -50px;
+    animation-delay: 4.5s;
+}
+@keyframes giveFlowers {
+    0%, 80% { opacity: 0; transform: translateY(0); }
+    100% { opacity: 1; transform: translateY(-50px); }
+}
+audio {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: none; /* Hide audio controls */
+}
